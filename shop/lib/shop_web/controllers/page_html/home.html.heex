@@ -1,0 +1,22 @@
+<.flash_group flash={@flash} />
+<h1>Welcome to SHOP!</h1>
+<h2>This is the best</h2>
+
+<hr class="my-7">
+
+<p class="text-red-500 text-5xl font-bold text-center my-6">Select your favorite console:</p>
+
+<a href={~p"/products"}>See all products</a>
+
+<form action="" class="text-blue-400 text-2xl font-bold text-center my-6">
+  <select class="text-blue-400 text-2xl font-bold" name="console" id="console">
+    <option class="text-blue-400 text-2xl font-bold" value="pc">PC</option>
+    <option class="text-blue-400 text-2xl font-bold" value="xbox">Xbox</option>
+    <option class="text-blue-400 text-2xl font-bold" value="playstation">Playstation</option>
+    <option class="text-blue-400 text-2xl font-bold" value="nintendo">Nintendo</option>
+  </select>
+
+  <button type="submit">Save</button>
+</form>
+
+<p class="mt-8">Selected Console: <%= @console %></p>

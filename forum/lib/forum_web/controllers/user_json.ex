@@ -1,6 +1,6 @@
 defmodule ForumWeb.UserJSON do
   alias Forum.Accounts.User
-  alias Forum.Posts.Post
+  # alias Forum.Posts.Post
   alias ForumWeb.PostJSON
 
   @doc """
