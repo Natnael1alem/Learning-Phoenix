@@ -1,3 +1,24 @@
-<h1>Product Number = {@id}</h1>
+<.back navigate={~p"/products"}>
+  Back to Products
+</.back>
 
-<h1>Produc Name = {@name}</h1>
+<br/>
+<hr/>
+<br/>
+
+<p>ID: {@product.id}</p>
+
+<p :if={@product} > {@product.name} </p>
+
+<!-- <.modal id="user-modal" show>
+  Click Me!
+</.modal> -->
+
+<br/>
+<hr/>
+<br/>
+
+<.button>
+  Buy
+</.button>
+

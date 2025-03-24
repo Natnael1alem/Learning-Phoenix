@@ -1,3 +1,17 @@
 <h1>This is supposed to be the products page!</h1>
 
 <p :if={@promo}>You have a promotional code!</p>
+
+<br/>
+<hr/>
+<br/>
+
+<.product :for = {product <- @products} product={product}/>
+
+<br/>
+<hr/>
+<br/>
+
+<a href={~p"/?#{[console: "xbox", promo: "true"]}"}>go to products list</a>
+<p>this is thet full url: <%= url(~p"/products") %></p>
+
