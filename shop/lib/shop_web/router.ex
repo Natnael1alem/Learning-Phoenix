@@ -26,16 +26,18 @@ defmodule ShopWeb.Router do
     get "/", PageController, :home
     get "/products", ProductsController, :index
     get "/products/:slug", ProductsController, :show
+    resources "/promotions", PromotionController
     # get "/exp", ExpController, :index
-    get "/random", RandomController, :random
-
+    #get "/random", RandomController, :random
     # resources "/products", ProductsController, only: [:index, :show]
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", ShopWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", ShopWeb do
+    pipe_through :api
+
+    get "/products", ApiController, :index
+  end
 
   scope "/dashboard", ShopWeb do
     pipe_through [:browser, :auth]

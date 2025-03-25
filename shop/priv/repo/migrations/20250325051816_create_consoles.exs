@@ -1,4 +1,4 @@
-defmodule Shop.Repo.Migrations.CreateConsoles do
+ defmodule Shop.Repo.Migrations.CreateConsoles do
   use Ecto.Migration
 
   def change do
