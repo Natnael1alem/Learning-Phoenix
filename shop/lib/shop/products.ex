@@ -1,41 +1,24 @@
-defmodule Shop.Product do
-  use Ecto.Schema
-  import Ecto.Changeset
+defmodule Shop.Products do
+  alias Shop.Repo
+  alias Shop.Products.Product
 
-  schema "products" do
-    field :name, :string
-    field :console, Ecto.Enum, values: [:pc, :xbox, :nintendo, :playstation]
-    field :slug, :string
+  def list_products, do: Repo.all(Product)
 
-    timestamps(type: :utc_datetime)
+  def find_product_by_slug(slug) when is_binary(slug) do
+    Repo.get_by(Product, slug: slug)
   end
 
-  @doc false
-  def changeset(product, attrs) do
-    product
-    |> cast(attrs, [:name, :console])
-    |> validate_required([:name, :console])
-    |> validate_length(:name, min: 3)
-    |> format_name()
-    |> generate_slug()
-    |> unique_constraint(:slug)
+  def find_by_id (id) do
+    Repo.get(Product, id)
   end
 
-  defp format_name(changeset) do
-    name =
-      changeset.changes.name
-      |>String.trim()
-
-    put_change(changeset, :name, name)
+  def create_product(attr \\ %{}) do
+    %Product{}
+    |> Product.changeset(attr)
+    |> Repo.insert
   end
 
-  defp generate_slug(changeset) do
-    slug =
-      changeset.changes.name
-      |> String.downcase()
-      |> String.replace(" ", "-")
-
-    put_change(changeset, :slug, slug)
+  def delete_product (product = %Product{}) do
+    Repo.delete(product)
   end
-
 end
