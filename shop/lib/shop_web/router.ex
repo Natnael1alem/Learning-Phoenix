@@ -33,6 +33,8 @@ defmodule ShopWeb.Router do
     # get "/exp", ExpController, :index
     #get "/random", RandomController, :random
     # resources "/products", ProductsController, only: [:index, :show]
+
+    live "/products-live", ProductLive.Index
   end
 
   # Other scopes may use custom stacks.
